@@ -624,14 +624,57 @@ footer{background:var(--navy);color:#94a3b8;padding:1.6rem 0;margin-top:2rem;fon
 <footer>© 2026 م. عصام خليفة — <span data-ar="جميع الحقوق محفوظة" data-en="All rights reserved">جميع الحقوق محفوظة</span></footer>
 
 <script>
-// ارتفاع الشريط العلوي الثابت — يتغيّر عند التفاف القائمة على الجوال
-function syncHeaderHeight() {
-  const top = document.querySelector('header.top');
-  if (top) document.documentElement.style.setProperty('--hdr', top.offsetHeight + 'px');
+// ======= محاذاة الأقسام أسفل الشريط العلوي الثابت =======
+// متصفحات الجوال (Safari على iOS خصوصًا) تتجاهل scroll-margin-top مع
+// scroll-behavior:smooth، لذا نحسب موضع التمرير يدويًا ولا نعتمد عليها.
+const topBar = document.querySelector('header.top');
+const GAP = 16;
+
+function headerOffset() {
+  return (topBar ? topBar.offsetHeight : 0) + GAP;
 }
+
+function syncHeaderHeight() {
+  document.documentElement.style.setProperty('--hdr', (topBar ? topBar.offsetHeight : 0) + 'px');
+}
+
+function goToSection(id, smooth) {
+  const el = document.getElementById(id);
+  if (!el) return false;
+  // قياسان: الثاني بعد أن يستقر التخطيط (التفاف القائمة، تحميل الصور)
+  const jump = () => scrollTo({
+    top: Math.max(0, el.getBoundingClientRect().top + scrollY - headerOffset()),
+    behavior: smooth ? 'smooth' : 'auto',
+  });
+  jump();
+  setTimeout(() => scrollTo({
+    top: Math.max(0, el.getBoundingClientRect().top + scrollY - headerOffset()),
+    behavior: 'auto',
+  }), smooth ? 420 : 60);
+  return true;
+}
+
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const id = a.getAttribute('href').slice(1);
+    if (!id) return;
+    if (goToSection(id, true)) {
+      e.preventDefault();
+      try { history.replaceState(null, '', '#' + id); } catch (err) {}
+    }
+  });
+});
+
 syncHeaderHeight();
 addEventListener('resize', syncHeaderHeight);
-addEventListener('load', syncHeaderHeight);
+addEventListener('orientationchange', syncHeaderHeight);
+addEventListener('load', () => {
+  syncHeaderHeight();
+  // فتح الصفحة برابط فيه #قسم مباشرة
+  if (location.hash.length > 1) goToSection(location.hash.slice(1), false);
+});
+// تغيّر اللغة يغيّر أطوال النصوص فيتغيّر ارتفاع الشريط
+if (window.ResizeObserver && topBar) new ResizeObserver(syncHeaderHeight).observe(topBar);
 if (document.fonts && document.fonts.ready) document.fonts.ready.then(syncHeaderHeight);
 
 const WA_PREFIX = "\u0645\u0631\u062d\u0628\u064b\u0627\u060c \u0623\u0631\u063a\u0628 \u0641\u064a: ";
