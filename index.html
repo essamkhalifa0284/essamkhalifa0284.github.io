@@ -36,6 +36,17 @@ header.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.95);bac
 .brand{display:flex;align-items:center;gap:.5rem;font-weight:800;text-decoration:none;color:var(--navy)}
 .brand img{width:34px;height:34px;border-radius:50%;object-fit:cover;object-position:top;border:2px solid var(--primary)}
 nav{display:flex;gap:.9rem;flex-wrap:wrap;font-size:.92rem;font-weight:600}nav a{color:var(--muted);text-decoration:none}
+/* الجوال: القائمة سطر واحد يُسحب بالإصبع — توفّر ~76px من ارتفاع الشريط الثابت */
+@media (max-width:760px){
+  .top .wrap{row-gap:.35rem}
+  .controls{order:2}
+  nav{order:3;width:100%;flex-wrap:nowrap;overflow-x:auto;gap:1.05rem;
+      padding-bottom:.15rem;scrollbar-width:none;-webkit-overflow-scrolling:touch;
+      -webkit-mask-image:linear-gradient(to left,#000 calc(100% - 26px),transparent);
+      mask-image:linear-gradient(to left,#000 calc(100% - 26px),transparent)}
+  nav::-webkit-scrollbar{display:none}
+  nav a{white-space:nowrap}
+}
 .controls{margin-inline-start:auto;display:flex;gap:.4rem;align-items:center}
 .cur,.lang{font:inherit;font-size:.82rem;font-weight:700;padding:.25rem .6rem;border-radius:999px;border:1px solid var(--border);background:#fff;color:var(--muted);cursor:pointer}
 .cur.active{background:var(--primary);color:#fff;border-color:var(--primary)}
@@ -465,45 +476,85 @@ footer{background:var(--navy);color:#94a3b8;padding:1.6rem 0;margin-top:2rem;fon
   <section id="proofs">
     <h2><span data-ar="⭐ شواهد النجاح — نتائج المتدربين" data-en="⭐ Proof of results — trainee scores">⭐ شواهد النجاح — نتائج المتدربين</span></h2>
     <div class="proofs"><figure><a href="assets/proof/mos-excel-978.jpg" target="_blank" rel="noopener">
-            <img src="assets/proof/mos-excel-978.jpg" alt="MOS Excel (Office 2019)" loading="lazy"></a>
+            <img src="assets/proof/thumbs/mos-excel-978.webp" alt="MOS Excel (Office 2019)"
+                 width="460" height="259"
+                 loading="lazy" decoding="async"></a>
             <figcaption><strong>MOS Excel (Office 2019)</strong><span class="score">978/1000</span></figcaption></figure><figure><a href="assets/proof/mos-excel-957.jpg" target="_blank" rel="noopener">
-            <img src="assets/proof/mos-excel-957.jpg" alt="MOS Excel (Office 2019)" loading="lazy"></a>
+            <img src="assets/proof/thumbs/mos-excel-957.webp" alt="MOS Excel (Office 2019)"
+                 width="460" height="533"
+                 loading="lazy" decoding="async"></a>
             <figcaption><strong>MOS Excel (Office 2019)</strong><span class="score">957/1000</span></figcaption></figure><figure><a href="assets/proof/mos-excel-950.jpg" target="_blank" rel="noopener">
-            <img src="assets/proof/mos-excel-950.jpg" alt="MOS Excel (Office 2019)" loading="lazy"></a>
+            <img src="assets/proof/thumbs/mos-excel-950.webp" alt="MOS Excel (Office 2019)"
+                 width="460" height="477"
+                 loading="lazy" decoding="async"></a>
             <figcaption><strong>MOS Excel (Office 2019)</strong><span class="score">950/1000</span></figcaption></figure><figure><a href="assets/proof/mos-excel-900.jpg" target="_blank" rel="noopener">
-            <img src="assets/proof/mos-excel-900.jpg" alt="MOS Excel (Microsoft 365)" loading="lazy"></a>
+            <img src="assets/proof/thumbs/mos-excel-900.webp" alt="MOS Excel (Microsoft 365)"
+                 width="460" height="277"
+                 loading="lazy" decoding="async"></a>
             <figcaption><strong>MOS Excel (Microsoft 365)</strong><span class="score">900/1000</span></figcaption></figure><figure><a href="assets/proof/mos-excel-871.jpg" target="_blank" rel="noopener">
-            <img src="assets/proof/mos-excel-871.jpg" alt="MOS Excel (Office 2019)" loading="lazy"></a>
+            <img src="assets/proof/thumbs/mos-excel-871.webp" alt="MOS Excel (Office 2019)"
+                 width="460" height="279"
+                 loading="lazy" decoding="async"></a>
             <figcaption><strong>MOS Excel (Office 2019)</strong><span class="score">871/1000</span></figcaption></figure><figure><a href="assets/proof/mos-excel-pass-a.jpg" target="_blank" rel="noopener">
-            <img src="assets/proof/mos-excel-pass-a.jpg" alt="MOS Excel (Office 2019)" loading="lazy"></a>
+            <img src="assets/proof/thumbs/mos-excel-pass-a.webp" alt="MOS Excel (Office 2019)"
+                 width="341" height="600"
+                 loading="lazy" decoding="async"></a>
             <figcaption><strong>MOS Excel (Office 2019)</strong><span class="score">ناجح</span></figcaption></figure><figure><a href="assets/proof/mos-excel-pass-b.jpg" target="_blank" rel="noopener">
-            <img src="assets/proof/mos-excel-pass-b.jpg" alt="MOS Excel (Office 2019)" loading="lazy"></a>
+            <img src="assets/proof/thumbs/mos-excel-pass-b.webp" alt="MOS Excel (Office 2019)"
+                 width="293" height="432"
+                 loading="lazy" decoding="async"></a>
             <figcaption><strong>MOS Excel (Office 2019)</strong><span class="score">ناجح</span></figcaption></figure><figure><a href="assets/proof/mos-powerpoint-820.jpg" target="_blank" rel="noopener">
-            <img src="assets/proof/mos-powerpoint-820.jpg" alt="MOS PowerPoint (Office 2019)" loading="lazy"></a>
+            <img src="assets/proof/thumbs/mos-powerpoint-820.webp" alt="MOS PowerPoint (Office 2019)"
+                 width="460" height="310"
+                 loading="lazy" decoding="async"></a>
             <figcaption><strong>MOS PowerPoint (Office 2019)</strong><span class="score">820/1000</span></figcaption></figure><figure><a href="assets/proof/mos-word-723.jpg" target="_blank" rel="noopener">
-            <img src="assets/proof/mos-word-723.jpg" alt="MOS Word (Office 2019)" loading="lazy"></a>
+            <img src="assets/proof/thumbs/mos-word-723.webp" alt="MOS Word (Office 2019)"
+                 width="460" height="263"
+                 loading="lazy" decoding="async"></a>
             <figcaption><strong>MOS Word (Office 2019)</strong><span class="score">723/1000</span></figcaption></figure><figure><a href="assets/proof/gmetrix-word-942.jpg" target="_blank" rel="noopener">
-            <img src="assets/proof/gmetrix-word-942.jpg" alt="GMetrix — MOS Word Practice" loading="lazy"></a>
+            <img src="assets/proof/thumbs/gmetrix-word-942.webp" alt="GMetrix — MOS Word Practice"
+                 width="460" height="818"
+                 loading="lazy" decoding="async"></a>
             <figcaption><strong>GMetrix — MOS Word Practice</strong><span class="score">942/1000</span></figcaption></figure><figure><a href="assets/proof/ic3-living-online-984.jpg" target="_blank" rel="noopener">
-            <img src="assets/proof/ic3-living-online-984.jpg" alt="IC3 GS5 Living Online" loading="lazy"></a>
+            <img src="assets/proof/thumbs/ic3-living-online-984.webp" alt="IC3 GS5 Living Online"
+                 width="460" height="248"
+                 loading="lazy" decoding="async"></a>
             <figcaption><strong>IC3 GS5 Living Online</strong><span class="score">984/1000</span></figcaption></figure><figure><a href="assets/proof/ic3-living-online-984b.jpg" target="_blank" rel="noopener">
-            <img src="assets/proof/ic3-living-online-984b.jpg" alt="IC3 GS5 Living Online" loading="lazy"></a>
+            <img src="assets/proof/thumbs/ic3-living-online-984b.webp" alt="IC3 GS5 Living Online"
+                 width="460" height="186"
+                 loading="lazy" decoding="async"></a>
             <figcaption><strong>IC3 GS5 Living Online</strong><span class="score">984/1000</span></figcaption></figure><figure><a href="assets/proof/ic3-living-online-967.jpg" target="_blank" rel="noopener">
-            <img src="assets/proof/ic3-living-online-967.jpg" alt="IC3 GS5 Living Online" loading="lazy"></a>
+            <img src="assets/proof/thumbs/ic3-living-online-967.webp" alt="IC3 GS5 Living Online"
+                 width="460" height="228"
+                 loading="lazy" decoding="async"></a>
             <figcaption><strong>IC3 GS5 Living Online</strong><span class="score">967/1000</span></figcaption></figure><figure><a href="assets/proof/ic3-living-online-920.jpg" target="_blank" rel="noopener">
-            <img src="assets/proof/ic3-living-online-920.jpg" alt="IC3 GS5 Living Online" loading="lazy"></a>
+            <img src="assets/proof/thumbs/ic3-living-online-920.webp" alt="IC3 GS5 Living Online"
+                 width="460" height="259"
+                 loading="lazy" decoding="async"></a>
             <figcaption><strong>IC3 GS5 Living Online</strong><span class="score">920/1000</span></figcaption></figure><figure><a href="assets/proof/ic3-living-online-900.jpg" target="_blank" rel="noopener">
-            <img src="assets/proof/ic3-living-online-900.jpg" alt="IC3 GS5 Living Online" loading="lazy"></a>
+            <img src="assets/proof/thumbs/ic3-living-online-900.webp" alt="IC3 GS5 Living Online"
+                 width="460" height="281"
+                 loading="lazy" decoding="async"></a>
             <figcaption><strong>IC3 GS5 Living Online</strong><span class="score">900/1000</span></figcaption></figure><figure><a href="assets/proof/ic3-key-apps-906.jpg" target="_blank" rel="noopener">
-            <img src="assets/proof/ic3-key-apps-906.jpg" alt="IC3 GS5 Key Applications" loading="lazy"></a>
+            <img src="assets/proof/thumbs/ic3-key-apps-906.webp" alt="IC3 GS5 Key Applications"
+                 width="460" height="239"
+                 loading="lazy" decoding="async"></a>
             <figcaption><strong>IC3 GS5 Key Applications</strong><span class="score">906/1000</span></figcaption></figure><figure><a href="assets/proof/ic3-key-apps-906b.jpg" target="_blank" rel="noopener">
-            <img src="assets/proof/ic3-key-apps-906b.jpg" alt="IC3 GS5 Key Applications" loading="lazy"></a>
+            <img src="assets/proof/thumbs/ic3-key-apps-906b.webp" alt="IC3 GS5 Key Applications"
+                 width="460" height="273"
+                 loading="lazy" decoding="async"></a>
             <figcaption><strong>IC3 GS5 Key Applications</strong><span class="score">906/1000</span></figcaption></figure><figure><a href="assets/proof/ic3-key-apps-858.jpg" target="_blank" rel="noopener">
-            <img src="assets/proof/ic3-key-apps-858.jpg" alt="IC3 GS5 Key Applications" loading="lazy"></a>
+            <img src="assets/proof/thumbs/ic3-key-apps-858.webp" alt="IC3 GS5 Key Applications"
+                 width="460" height="259"
+                 loading="lazy" decoding="async"></a>
             <figcaption><strong>IC3 GS5 Key Applications</strong><span class="score">858/1000</span></figcaption></figure><figure><a href="assets/proof/ic3-computing-910.jpg" target="_blank" rel="noopener">
-            <img src="assets/proof/ic3-computing-910.jpg" alt="IC3 GS5 Computing Fundamentals" loading="lazy"></a>
+            <img src="assets/proof/thumbs/ic3-computing-910.webp" alt="IC3 GS5 Computing Fundamentals"
+                 width="460" height="259"
+                 loading="lazy" decoding="async"></a>
             <figcaption><strong>IC3 GS5 Computing Fundamentals</strong><span class="score">910/1000</span></figcaption></figure><figure><a href="assets/proof/ic3-computing-869.jpg" target="_blank" rel="noopener">
-            <img src="assets/proof/ic3-computing-869.jpg" alt="IC3 GS5 Computing Fundamentals" loading="lazy"></a>
+            <img src="assets/proof/thumbs/ic3-computing-869.webp" alt="IC3 GS5 Computing Fundamentals"
+                 width="460" height="260"
+                 loading="lazy" decoding="async"></a>
             <figcaption><strong>IC3 GS5 Computing Fundamentals</strong><span class="score">869/1000</span></figcaption></figure></div>
     <p class="muted small">🔒 <span data-ar="جميع البيانات الشخصية للمتدربين تم إخفاؤها حفاظًا على الخصوصية — الدرجات كما ظهرت في نظام Certiport / Pearson VUE" data-en="All trainee personal data has been removed to protect privacy — scores are shown exactly as reported by the Certiport / Pearson VUE system">جميع البيانات الشخصية للمتدربين تم إخفاؤها حفاظًا على الخصوصية — الدرجات كما ظهرت في نظام Certiport / Pearson VUE</span></p>
   </section>
