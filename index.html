@@ -35,12 +35,14 @@ header.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.95);bac
 .top .wrap{display:flex;align-items:center;gap:.6rem;padding:.55rem 0;flex-wrap:wrap}
 .brand{display:flex;align-items:center;gap:.5rem;font-weight:800;text-decoration:none;color:var(--navy)}
 .brand img{width:34px;height:34px;border-radius:50%;object-fit:cover;object-position:top;border:2px solid var(--primary)}
-nav{display:flex;gap:.9rem;flex-wrap:wrap;font-size:.92rem;font-weight:700}nav a{color:var(--navy);text-decoration:none}
+nav{display:flex;gap:.4rem;flex-wrap:wrap;font-size:.86rem;font-weight:700}
+nav a{color:var(--navy);text-decoration:none;padding:.46rem .78rem;border-radius:999px;background:var(--bg);border:1px solid var(--border);line-height:1.5;white-space:nowrap;transition:background .15s,color .15s,border-color .15s}
+nav a:hover,nav a:focus-visible{background:var(--primary);color:#fff;border-color:var(--primary)}
 /* الجوال: القائمة سطر واحد يُسحب بالإصبع — توفّر ~76px من ارتفاع الشريط الثابت */
 @media (max-width:760px){
   .top .wrap{row-gap:.35rem}
   .controls{order:2}
-  nav{order:3;width:100%;flex-wrap:nowrap;overflow-x:auto;gap:1.05rem;
+  nav{order:3;width:100%;flex-wrap:nowrap;overflow-x:auto;gap:.4rem;
       padding-bottom:.15rem;scrollbar-width:none;-webkit-overflow-scrolling:touch}
   nav::-webkit-scrollbar{display:none}
   nav a{white-space:nowrap}
