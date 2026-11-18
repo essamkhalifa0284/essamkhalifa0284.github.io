@@ -41,9 +41,7 @@ nav{display:flex;gap:.9rem;flex-wrap:wrap;font-size:.92rem;font-weight:700}nav a
   .top .wrap{row-gap:.35rem}
   .controls{order:2}
   nav{order:3;width:100%;flex-wrap:nowrap;overflow-x:auto;gap:1.05rem;
-      padding-bottom:.15rem;padding-inline-end:30px;scrollbar-width:none;-webkit-overflow-scrolling:touch;
-      -webkit-mask-image:linear-gradient(to left,#000 calc(100% - 26px),transparent);
-      mask-image:linear-gradient(to left,#000 calc(100% - 26px),transparent)}
+      padding-bottom:.15rem;scrollbar-width:none;-webkit-overflow-scrolling:touch}
   nav::-webkit-scrollbar{display:none}
   nav a{white-space:nowrap}
 }
@@ -752,6 +750,57 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 });
 
 syncHeaderHeight();
+
+// تلميح السحب: القائمة لا تتسع لكل التبويبات على الجوال، فنحرّكها مرة
+// عند أول فتح ليرى الزائر أن وراءها مزيدًا. مرة واحدة لكل جلسة تصفّح.
+function glideNav(nav, from, to, ms, then) {
+
+  const started = performance.now();
+
+  requestAnimationFrame(function step(now) {
+    const p = Math.min(1, (now - started) / ms);
+    const eased = p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
+    nav.scrollLeft = from + (to - from) * eased;
+    if (p < 1) requestAnimationFrame(step);
+    else if (then) then();
+  });
+}
+
+function hintNavScroll() {
+
+  const nav = document.querySelector('nav');
+  if (!nav) return;
+
+  const hidden = nav.scrollWidth - nav.clientWidth;
+  if (hidden < 24) return;                       // كلها ظاهرة، لا داعي للتلميح
+
+  // من يستخدم إعداد "تقليل الحركة" في نظامه لا نحرّك له شيئًا
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  try {
+    if (sessionStorage.getItem('navHinted')) return;
+    sessionStorage.setItem('navHinted', '1');
+  } catch (e) {}
+
+  // في العربية تكون الإزاحة سالبة، وفي الإنجليزية موجبة
+  const away = (document.documentElement.dir === 'rtl' ? -1 : 1)
+               * Math.min(72, hidden);
+
+  // يتوقف التلميح فورًا إن بدأ الزائر يسحب بنفسه
+  let stop = false;
+  const cancel = () => { stop = true; };
+  nav.addEventListener('pointerdown', cancel, {once: true});
+  nav.addEventListener('touchstart', cancel, {once: true, passive: true});
+
+  setTimeout(() => {
+    if (stop) return;
+    glideNav(nav, 0, away, 520, () => {
+      setTimeout(() => { if (!stop) glideNav(nav, away, 0, 460); }, 320);
+    });
+  }, 650);
+}
+
+addEventListener('load', hintNavScroll);
 addEventListener('resize', syncHeaderHeight);
 addEventListener('orientationchange', syncHeaderHeight);
 addEventListener('load', () => {
