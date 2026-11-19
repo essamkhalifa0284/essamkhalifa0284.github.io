@@ -80,6 +80,19 @@ article.card > h3:first-child{margin:-1.1rem -1.1rem .7rem;padding:.8rem 1rem;ba
 .review blockquote::before{content:"\201D";position:absolute;top:-.6rem;inset-inline-start:0;font-size:3rem;color:var(--primary);opacity:.25;line-height:1}
 .review figcaption{display:flex;flex-wrap:wrap;gap:.3rem .6rem;align-items:center;border-top:1px solid var(--border);padding-top:.6rem;margin-top:auto}
 .review .stars{color:var(--accent);margin-inline-start:auto;letter-spacing:.1em}
+.review-form{margin-top:.9rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:1.1rem;display:grid;gap:.55rem}
+.review-form h3{margin:0;font-size:1.05rem}
+.review-form p{margin:0}
+.review-form input,.review-form textarea{font:inherit;font-size:.95rem;padding:.6rem .75rem;border:1px solid var(--border);border-radius:10px;background:var(--bg);color:var(--text);width:100%}
+.review-form input:focus,.review-form textarea:focus{outline:2px solid var(--primary);outline-offset:1px;background:#fff}
+.review-form textarea{resize:vertical;min-height:86px;line-height:1.7}
+.review-form .btn{justify-self:start}
+.stars-pick{display:flex;gap:.2rem;margin:.1rem 0 .2rem}
+.stars-pick .star{font-size:1.75rem;line-height:1;background:none;border:0;padding:0 .08rem;cursor:pointer;color:#d6dde7;transition:color .12s,transform .12s}
+.stars-pick .star.on{color:var(--accent)}
+.stars-pick .star:hover{transform:scale(1.18)}
+.rv-note{color:#b91c1c;margin:0}
+.rv-note.ok{color:var(--primary)}
 .faq{display:grid;gap:.6rem}
 .faq details{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
 .faq summary{cursor:pointer;padding:.9rem 1rem;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:.6rem;align-items:center}
@@ -565,6 +578,21 @@ footer{background:var(--navy);color:#94a3b8;padding:1.6rem 0;margin-top:2rem;fon
   <section id="reviews">
     <h2><span data-ar="💬 ماذا قال المتدربون" data-en="💬 What trainees say">💬 ماذا قال المتدربون</span></h2>
     <div class="reviews"><figure class="review"><blockquote><span data-ar="ممتاز، شرح هادي وممتع" data-en="Excellent — calm, enjoyable teaching.">ممتاز، شرح هادي وممتع</span></blockquote><figcaption><strong>أحمد</strong><span class="muted small"><span data-ar="متدرّب" data-en="Trainee">متدرّب</span></span></figcaption></figure><figure class="review"><blockquote><span data-ar="ما شاء الله، طريقته في الشرح جذابه وأفكار مرتبه" data-en="His way of explaining is engaging, and his ideas are well organised.">ما شاء الله، طريقته في الشرح جذابه وأفكار مرتبه</span></blockquote><figcaption><strong>نواف</strong><span class="muted small"><span data-ar="متدرّب" data-en="Trainee">متدرّب</span></span></figcaption></figure><figure class="review"><blockquote><span data-ar="رووووعه، شرح جميل، فهمت كورس البايثون بالكامل وعملت مشاريع" data-en="Wonderful, a great explanation. I understood the whole Python course and built projects.">رووووعه، شرح جميل، فهمت كورس البايثون بالكامل وعملت مشاريع</span></blockquote><figcaption><strong>عبدالرحمن</strong><span class="muted small"><span data-ar="متدرّب — دورة Python" data-en="Trainee — Python course">متدرّب — دورة Python</span></span></figcaption></figure><figure class="review"><blockquote><span data-ar="ممتاز، اجتزت الاختبار بدرجة عالية جدًا الحمد لله" data-en="Excellent — I passed the exam with a very high score, praise be to God.">ممتاز، اجتزت الاختبار بدرجة عالية جدًا الحمد لله</span></blockquote><figcaption><strong>رهف</strong><span class="muted small"><span data-ar="متدرّبة" data-en="Trainee">متدرّبة</span></span></figcaption></figure><figure class="review"><blockquote><span data-ar="صراحة صمم لي فيديو تعليمي روعة" data-en="Honestly, he designed a wonderful educational video for me.">صراحة صمم لي فيديو تعليمي روعة</span></blockquote><figcaption><strong>أمنية</strong><span class="muted small"><span data-ar="عميلة — تصميم فيديو تعليمي" data-en="Client — educational video">عميلة — تصميم فيديو تعليمي</span></span></figcaption></figure><figure class="review"><blockquote><span data-ar="عملت عنده موقع كان ممتاز وبسعر مناسب جدًا" data-en="He built a website for me — excellent work at a very reasonable price.">عملت عنده موقع كان ممتاز وبسعر مناسب جدًا</span></blockquote><figcaption><strong>عبدالعزيز الز.</strong><span class="muted small"><span data-ar="عميل — تصميم موقع إلكتروني" data-en="Client — website design">عميل — تصميم موقع إلكتروني</span></span></figcaption></figure><figure class="review"><blockquote><span data-ar="يعطيك ألف عافية، الله يسعدك، ما قصّرت معي، إنسان خلوق ويتعامل باحترافية" data-en="Thank you so much, may God bless you. You did everything for me — a well-mannered person who works professionally.">يعطيك ألف عافية، الله يسعدك، ما قصّرت معي، إنسان خلوق ويتعامل باحترافية</span></blockquote><figcaption><strong>عبدالرحمن الغ.</strong><span class="muted small"><span data-ar="عميل" data-en="Client">عميل</span></span></figcaption></figure><figure class="review"><blockquote><span data-ar="عملت عنده مشروع تحليل بيانات وكانت تجربة ممتعة الصراحة، لا يبخل بالوقت ومتفاهم في السعر" data-en="I had a data analysis project done with him and it was genuinely an enjoyable experience — generous with his time and reasonable about the price.">عملت عنده مشروع تحليل بيانات وكانت تجربة ممتعة الصراحة، لا يبخل بالوقت ومتفاهم في السعر</span></blockquote><figcaption><strong>ثنيان</strong><span class="muted small"><span data-ar="عميل — مشروع تحليل بيانات" data-en="Client — data analysis project">عميل — مشروع تحليل بيانات</span></span></figcaption></figure><figure class="review"><blockquote><span data-ar="ساعدني كتير في فهم كود مشروع التخرج وظهور المشروع في أحسن صورة، أخذت الدرجة full الحمد لله" data-en="He helped me a lot in understanding my graduation project&#x27;s code and presenting it at its best. I got full marks, praise be to God.">ساعدني كتير في فهم كود مشروع التخرج وظهور المشروع في أحسن صورة، أخذت الدرجة full الحمد لله</span></blockquote><figcaption><strong>حسن</strong><span class="muted small"><span data-ar="طالب — دعم مشروع تخرج" data-en="Student — graduation project support">طالب — دعم مشروع تخرج</span></span></figcaption></figure></div>
+    <div class="review-form">
+      <h3><span data-ar="⭐ شاركنا رأيك" data-en="⭐ Share your experience">⭐ شاركنا رأيك</span></h3>
+      <p class="muted small"><span data-ar="اختر تقييمك واكتب رأيك، فيصلني على واتساب وأنشره على الموقع بعد إذنك." data-en="Pick a rating and write your review. It reaches me on WhatsApp and is published only with your permission.">اختر تقييمك واكتب رأيك، فيصلني على واتساب وأنشره على الموقع بعد إذنك.</span></p>
+      <div class="stars-pick" id="rv-stars" role="group" aria-label="rating"><button type="button" class="star" data-v="1" aria-label="1">★</button><button type="button" class="star" data-v="2" aria-label="2">★</button><button type="button" class="star" data-v="3" aria-label="3">★</button><button type="button" class="star" data-v="4" aria-label="4">★</button><button type="button" class="star" data-v="5" aria-label="5">★</button></div>
+      <input id="rv-name" type="text" maxlength="40"
+             data-ph-ar="اسمك" data-ph-en="Your name" placeholder="اسمك">
+      <input id="rv-service" type="text" maxlength="60"
+             data-ph-ar="الخدمة التي حصلت عليها (اختياري)" data-ph-en="Service you received (optional)"
+             placeholder="الخدمة التي حصلت عليها (اختياري)">
+      <textarea id="rv-text" rows="3" maxlength="500"
+                data-ph-ar="اكتب رأيك هنا..." data-ph-en="Write your review here..."
+                placeholder="اكتب رأيك هنا..."></textarea>
+      <p class="small rv-note" id="rv-note" hidden></p>
+      <button class="btn btn-wa" id="rv-send" type="button"><span data-ar="أرسل رأيك عبر واتساب" data-en="Send your review on WhatsApp">أرسل رأيك عبر واتساب</span></button>
+    </div>
   </section>
 
   <section id="faq">
@@ -812,6 +840,67 @@ function hintNavScroll() {
 
 addEventListener('load', hintNavScroll);
 
+// ===== نموذج إرسال رأي =====
+// الموقع استضافة ثابتة بلا خادم، فلا يمكنه حفظ الرأي. نبني من المُدخلات
+// رسالة واتساب جاهزة تصل صاحب الموقع، فيراجعها قبل النشر.
+(function reviewForm() {
+
+  const box = document.querySelector('.review-form');
+  if (!box) return;
+
+  const starsBox = document.getElementById('rv-stars');
+  const stars = [...starsBox.querySelectorAll('.star')];
+  const note = document.getElementById('rv-note');
+  let rating = 0;
+
+  function paint(upto) {
+    stars.forEach(s => s.classList.toggle('on', Number(s.dataset.v) <= upto));
+  }
+
+  stars.forEach(star => {
+    star.addEventListener('click', () => {
+      rating = Number(star.dataset.v);
+      paint(rating);
+      note.hidden = true;
+    });
+    star.addEventListener('mouseenter', () => paint(Number(star.dataset.v)));
+  });
+
+  starsBox.addEventListener('mouseleave', () => paint(rating));
+
+  function say(message, ok) {
+    note.textContent = message;
+    note.classList.toggle('ok', !!ok);
+    note.hidden = false;
+  }
+
+  document.getElementById('rv-send').addEventListener('click', () => {
+
+    const ar = document.documentElement.lang === 'ar';
+    const name = document.getElementById('rv-name').value.trim();
+    const service = document.getElementById('rv-service').value.trim();
+    const text = document.getElementById('rv-text').value.trim();
+
+    if (!text) {
+      say(ar ? 'اكتب رأيك أولًا من فضلك.' : 'Please write your review first.');
+      document.getElementById('rv-text').focus();
+      return;
+    }
+
+    const lines = [ar ? 'رأيي عن الخدمة:' : 'My review:'];
+    if (rating) lines.push((ar ? 'التقييم: ' : 'Rating: ') + '★'.repeat(rating) + ' (' + rating + '/5)');
+    if (name) lines.push((ar ? 'الاسم: ' : 'Name: ') + name);
+    if (service) lines.push((ar ? 'الخدمة: ' : 'Service: ') + service);
+    lines.push('');
+    lines.push(text);
+
+    open('https://wa.me/966508102969?text=' + encodeURIComponent(lines.join('\n')), '_blank');
+
+    say(ar ? 'شكرًا لك — فُتح واتساب، أرسل الرسالة لتصلني.'
+           : 'Thank you — WhatsApp is open, send the message to reach me.', true);
+  });
+})();
+
 // ===== تمييز القسم المعروض حاليًا =====
 // يتلوّن زر القسم الذي يقرؤه الزائر، وتنزلق القائمة لتُظهره إن كان خارج الشاشة.
 (function trackCurrentSection() {
@@ -915,6 +1004,9 @@ function setLang(lang) {
   document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
   document.querySelectorAll('[data-ar]').forEach(el => {
     el.textContent = lang === 'ar' ? el.dataset.ar : el.dataset.en;
+  });
+  document.querySelectorAll('[data-ph-ar]').forEach(el => {
+    el.placeholder = lang === 'ar' ? el.dataset.phAr : el.dataset.phEn;
   });
   document.getElementById('lang').textContent = lang === 'ar' ? 'English' : 'عربي';
   try { localStorage.setItem('lang', lang); } catch (e) {}
