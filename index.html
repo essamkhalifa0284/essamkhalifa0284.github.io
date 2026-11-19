@@ -67,7 +67,9 @@ section,.hero{scroll-margin-top:calc(var(--hdr) + 16px)}
 section{padding:2.2rem 0}section>h2{font-size:1.35rem;margin:0 0 1rem}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:1rem}
 .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:1.1rem;display:flex;flex-direction:column;gap:.4rem}
-.card h3{margin:0;font-size:1.05rem}.muted{color:var(--muted)}.small{font-size:.88rem}
+.card h3{margin:0;font-size:1.05rem}
+/* شريط عنوان ملوّن لبطاقات الدورات والخدمات والمشاريع */
+article.card > h3:first-child{margin:-1.1rem -1.1rem .65rem;padding:.78rem 1rem;background:linear-gradient(to left,rgba(15,118,110,.14),rgba(15,118,110,.03));border-bottom:1px solid var(--border);border-inline-start:4px solid var(--primary);border-start-start-radius:calc(var(--radius) - 1px);border-start-end-radius:calc(var(--radius) - 1px);color:var(--navy);line-height:1.65}.muted{color:var(--muted)}.small{font-size:.88rem}
 .features{margin:.3rem 0;padding-inline-start:1.1rem;color:var(--muted);font-size:.9rem;display:grid;gap:.2rem}
 .card-foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:.6rem;flex-wrap:wrap;padding-top:.5rem}
 .price{font-weight:800;font-size:1.15rem;color:var(--navy)}.ask{color:var(--muted);font-size:.9rem;font-weight:600}.price-wrap small{color:var(--muted);font-size:.78rem;display:block}
