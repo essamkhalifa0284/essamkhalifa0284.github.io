@@ -38,6 +38,7 @@ header.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.95);bac
 nav{display:flex;gap:.4rem;flex-wrap:wrap;font-size:.86rem;font-weight:700}
 nav a{color:var(--navy);text-decoration:none;padding:.46rem .78rem;border-radius:999px;background:var(--bg);border:1px solid var(--border);line-height:1.5;white-space:nowrap;transition:background .15s,color .15s,border-color .15s}
 nav a:hover,nav a:focus-visible{background:var(--primary);color:#fff;border-color:var(--primary)}
+nav a.current{background:var(--primary);color:#fff;border-color:var(--primary);box-shadow:0 2px 8px rgba(15,118,110,.3)}
 /* الجوال: القائمة سطر واحد يُسحب بالإصبع — توفّر ~76px من ارتفاع الشريط الثابت */
 @media (max-width:760px){
   .top .wrap{row-gap:.35rem}
@@ -803,6 +804,80 @@ function hintNavScroll() {
 }
 
 addEventListener('load', hintNavScroll);
+
+// ===== تمييز القسم المعروض حاليًا =====
+// يتلوّن زر القسم الذي يقرؤه الزائر، وتنزلق القائمة لتُظهره إن كان خارج الشاشة.
+(function trackCurrentSection() {
+
+  const nav = document.querySelector('nav');
+  if (!nav) return;
+
+  const pairs = [...nav.querySelectorAll('a[href^="#"]')]
+    .map(link => ({link, section: document.getElementById(link.getAttribute('href').slice(1))}))
+    .filter(pair => pair.section);
+
+  if (!pairs.length) return;
+
+  let active = null;
+  let dragging = false;
+
+  // لا نزاحم الزائر وهو يسحب القائمة بنفسه
+  nav.addEventListener('pointerdown', () => { dragging = true; });
+  addEventListener('pointerup', () => { dragging = false; });
+
+  function revealInNav(link) {
+
+    if (dragging) return;
+
+    const navBox = nav.getBoundingClientRect();
+    const box = link.getBoundingClientRect();
+
+    if (box.left >= navBox.left + 4 && box.right <= navBox.right - 4) return;   // ظاهر أصلًا
+
+    // نضعه في منتصف الشريط ما أمكن
+    const target = nav.scrollLeft + (box.left + box.width / 2) - (navBox.left + navBox.width / 2);
+
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) nav.scrollLeft = target;
+    else glideNav(nav, nav.scrollLeft, target, 380);
+  }
+
+  function update() {
+
+    // القسم يستقر عند headerOffset() بعد الضغط على زره، فنضع الخط أسفله بهامش
+    const line = headerOffset() + 28;
+    let found = null;
+
+    for (const pair of pairs) {
+      if (pair.section.getBoundingClientRect().top <= line) found = pair.link;
+    }
+
+    // آخر قسم عند بلوغ نهاية الصفحة
+    if (scrollY + innerHeight >= document.body.scrollHeight - 4) {
+      found = pairs[pairs.length - 1].link;
+    }
+
+    if (found === active) return;
+
+    if (active) active.classList.remove('current');
+    active = found;
+
+    if (active) {
+      active.classList.add('current');
+      revealInNav(active);
+    }
+  }
+
+  let queued = false;
+  addEventListener('scroll', () => {
+    if (queued) return;
+    queued = true;
+    requestAnimationFrame(() => { queued = false; update(); });
+  }, {passive: true});
+
+  addEventListener('resize', update);
+  addEventListener('load', update);
+  update();
+})();
 addEventListener('resize', syncHeaderHeight);
 addEventListener('orientationchange', syncHeaderHeight);
 addEventListener('load', () => {
