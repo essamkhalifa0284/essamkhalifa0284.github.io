@@ -73,11 +73,6 @@ article.card > h3:first-child{margin:-1.1rem -1.1rem .7rem;padding:.8rem 1rem;ba
 .features{margin:.3rem 0;padding-inline-start:1.1rem;color:var(--muted);font-size:.9rem;display:grid;gap:.2rem}
 .card-foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:.6rem;flex-wrap:wrap;padding-top:.5rem}
 .price{font-weight:800;font-size:1.15rem;color:var(--navy)}.ask{color:var(--muted);font-size:.9rem;font-weight:600}.price-wrap small{color:var(--muted);font-size:.78rem;display:block}
-.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.8rem;margin-bottom:1rem}
-.stat-card{background:linear-gradient(to left,#0f766e,#115e59);color:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:1.1rem .9rem;text-align:center;display:grid;gap:.25rem}
-.stat-card strong{font-size:2.1rem;line-height:1;font-weight:800}
-.stat-card span{font-size:.86rem;opacity:.92;line-height:1.5}
-.proofs{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:.8rem}
 .reviews{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:.8rem}
 .review{margin:0;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:1rem;display:flex;flex-direction:column;gap:.7rem}
 .review blockquote{margin:0;font-size:.95rem;line-height:1.85;position:relative;padding-top:1.4rem}
@@ -105,9 +100,6 @@ article.card > h3:first-child{margin:-1.1rem -1.1rem .7rem;padding:.8rem 1rem;ba
 .faq details[open] summary::after{transform:rotate(45deg)}
 .faq details[open] summary{border-bottom:1px solid var(--border)}
 .faq p{margin:0;padding:.9rem 1rem;color:var(--muted);font-size:.95rem}
-.proofs figure{margin:0;background:#fff;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
-.proofs img{width:100%;height:170px;object-fit:cover;object-position:top;display:block}
-.proofs figcaption{display:flex;justify-content:space-between;gap:.4rem;align-items:center;padding:.55rem .7rem;font-size:.82rem}
 .score{background:#ecfdf3;color:#15803d;font-weight:800;padding:.05rem .5rem;border-radius:999px;direction:ltr;white-space:nowrap}
 .pay code{font-size:1.25rem;font-weight:800;letter-spacing:.5px;background:#ecfdf3;border:1px dashed var(--wa);border-radius:10px;padding:.3rem .7rem;direction:ltr;display:inline-block;word-break:break-all}
 .pay.featured{border:2px solid var(--wa)}
@@ -144,7 +136,7 @@ footer{background:var(--navy);color:#94a3b8;padding:1.6rem 0;margin-top:2rem;fon
       <a href="#course"><span data-ar="الدورات" data-en="Courses">الدورات</span></a>
       <a href="#exam_prep"><span data-ar="الاختبارات" data-en="Certifications">الاختبارات</span></a>
       <a href="#service"><span data-ar="الخدمات" data-en="Services">الخدمات</span></a>
-      <a href="#proofs"><span data-ar="الشواهد" data-en="Results">الشواهد</span></a>
+      <a href="#reviews"><span data-ar="آراء العملاء" data-en="Reviews">آراء العملاء</span></a>
       <a href="#faq"><span data-ar="أسئلة شائعة" data-en="FAQ">أسئلة شائعة</span></a>
       <a href="#pay"><span data-ar="الدفع" data-en="Payment">الدفع</span></a>
       <a href="#contact"><span data-ar="تواصل" data-en="Contact">تواصل</span></a>
@@ -492,14 +484,6 @@ footer{background:var(--navy);color:#94a3b8;padding:1.6rem 0;margin-top:2rem;fon
         </div>
       </article></div>
     </section>
-
-  <section id="proofs">
-    <h2><span data-ar="⭐ نتائج المتدربين" data-en="⭐ Trainee results">⭐ نتائج المتدربين</span></h2>
-    <div class="stats-grid"><div class="stat-card"><strong>+400</strong><span><span data-ar="متدرّبًا اجتاز اختباره" data-en="trainees passed their exam">متدرّبًا اجتاز اختباره</span></span></div><div class="stat-card"><strong>100%</strong><span><span data-ar="نسبة النجاح" data-en="pass rate">نسبة النجاح</span></span></div><div class="stat-card"><strong>840–984</strong><span><span data-ar="مدى درجات المتدربين" data-en="range of trainee scores">مدى درجات المتدربين</span></span></div><div class="stat-card"><strong>700</strong><span><span data-ar="درجة النجاح المطلوبة" data-en="required pass mark">درجة النجاح المطلوبة</span></span></div></div>
-    <p class="muted small"><span data-ar="الاختبارات المجتازة:" data-en="Exams passed:">الاختبارات المجتازة:</span></p>
-    <div class="chips"><span class="chip">IC3 GS5 Computing Fundamentals</span><span class="chip">IC3 GS5 Key Applications</span><span class="chip">IC3 GS5 Living Online</span><span class="chip">MOS Excel</span><span class="chip">MOS PowerPoint</span><span class="chip">MOS Word</span></div>
-    <p class="muted small">🔒 <span data-ar="حفاظًا على خصوصية المتدربين لا تُنشر صور نتائجهم — الأرقام أعلاه مأخوذة من درجاتهم كما ظهرت في نظام Certiport / Pearson VUE" data-en="To protect trainees&#x27; privacy their result screenshots are not published — the figures above come from their scores as reported by the Certiport / Pearson VUE system">حفاظًا على خصوصية المتدربين لا تُنشر صور نتائجهم — الأرقام أعلاه مأخوذة من درجاتهم كما ظهرت في نظام Certiport / Pearson VUE</span></p>
-  </section>
 
   <section id="reviews">
     <h2><span data-ar="💬 ماذا قال المتدربون" data-en="💬 What trainees say">💬 ماذا قال المتدربون</span></h2>
